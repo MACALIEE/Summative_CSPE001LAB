@@ -40,19 +40,19 @@ ind = [1, 2, 3, 4, 5, 6, 7, 8]
 
 
 freeway_normal[0] = (segment[0] / normal_freeway) * 60 + stop_sign  # Segment 1
-freeway_normal[1] = (segment[8] / normal_freeway) * 60              # Segment 9
+freeway_normal[1] = (segment[8] / normal_freeway) * 60 + Avg_redlight  # Segment 9
 freeway_normal[2] = (segment[9] / normal_freeway) * 60              # Segment 10
 freeway_normal[3] = (segment[10] / normal_freeway) * 60 + Avg_redlight  # Segment 11 + traffic light
-freeway_normal[4] = (segment[6] / major_speed) * 60                 # Segment 7
-freeway_normal[5] = (segment[7] / local_speed) * 60 + Avg_redlight  # Segment 8 + traffic light
+freeway_normal[4] = (segment[6] / major_speed) * 60 + Avg_redlight + left_on_major # Segment 7
+freeway_normal[5] = (segment[7] / local_speed) * 60  # Segment 8 
 
 
 freeway_congest[0] = (segment[0] / congest_freeway) * 60 + stop_sign  # Segment 1
-freeway_congest[1] = (segment[8] / congest_freeway) * 60              # Segment 9
+freeway_congest[1] = (segment[8] / congest_freeway) * 60 + Avg_redlight # Segment 9
 freeway_congest[2] = (segment[9] / congest_freeway) * 60              # Segment 10
 freeway_congest[3] = (segment[10] / congest_freeway) * 60 + Avg_redlight  # Segment 11 + traffic light
-freeway_congest[4] = (segment[6] / major_speed) * 60                 # Segment 7
-freeway_congest[5] = (segment[7] / local_speed) * 60 + Avg_redlight  # Segment 8 + traffic light
+freeway_congest[4] = (segment[6] / major_speed) * 60 + Avg_redlight + left_on_major # Segment 7
+freeway_congest[5] = (segment[7] / local_speed) * 60 # Segment 8 + traffic light
 
 
 local[0] = (segment[0] / local_speed) * 60 + stop_sign               # Segment 1
@@ -60,9 +60,9 @@ local[1] = (segment[1] / major_speed) * 60 + Avg_redlight + left_on_major  # Seg
 local[2] = (segment[2] / major_speed) * 60 + stop_sign               # Segment 3
 local[3] = (segment[3] / major_speed) * 60 + stop_sign               # Segment 4
 local[4] = (segment[4] / major_speed) * 60 + stop_sign               # Segment 5
-local[5] = (segment[5] / major_speed) * 60                           # Segment 6 (no left turn here)
+local[5] = (segment[5] / major_speed) * 60 + Avg_redlight            # Segment 6 (no left turn here)
 local[6] = (segment[6] / major_speed) * 60 + Avg_redlight            # Segment 7 + traffic light
-local[7] = (segment[7] / local_speed) * 60 + Avg_redlight + left_on_major  # Segment 8 + traffic light + left turn
+local[7] = (segment[7] / local_speed) * 60 + left_on_major  # Segment 8 + traffic light + left turn
 
 
 local_cum[0] = local[0]
